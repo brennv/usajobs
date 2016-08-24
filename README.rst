@@ -61,7 +61,7 @@ Got an error cause we hit a list, so we'll grab the first item in the list.
 
     results['SearchResult']['SearchResultItems'][0]  # {'RelevanceRank': 10408.0, 'MatchedObjectDescriptor': ..
 
-    results['SearchResult']['SearchResultItems'][0]  # dict_keys(['RelevanceRank', 'MatchedObjectDescriptor', 'MatchedObjectId'])
+    results['SearchResult']['SearchResultItems'][0].keys()  # dict_keys(['RelevanceRank', 'MatchedObjectDescriptor', 'MatchedObjectId'])
 
     results['SearchResult']['SearchResultItems'][0]['MatchedObjectDescriptor'].keys()  # dict_keys(['PositionLocation', 'PositionID', 'PositionTitle', 'PositionRemuneration', 'JobCategory', 'PositionFormattedDescription', 'UserArea', 'PositionURI', 'PositionStartDate', 'OrganizationName', 'JobGrade', 'DepartmentName', 'QualificationSummary', 'PositionOfferingType', 'PublicationStartDate', 'ApplicationCloseDate', 'PositionEndDate', 'ApplyURI', 'PositionSchedule'])
 
