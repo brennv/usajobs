@@ -71,7 +71,7 @@ PositionLocation looks interesting so we'll grab it.
 
     data = results['SearchResult']['SearchResultItems'][0]['MatchedObjectDescriptor']['PositionLocation'][0]
 
-    data  # [{'Longitude': -86.585, 'CityName': 'Huntsville, Alabama', 'Latitude': 34.7291, 'LocationName': 'Huntsville, Alabama', 'CountryCode': 'United States', 'CountrySubDivisionCode': 'Alabama'}]
+    data  # {'Longitude': -86.585, 'CityName': 'Huntsville, Alabama', 'Latitude': 34.7291, 'LocationName': 'Huntsville, Alabama', 'CountryCode': 'United States', 'CountrySubDivisionCode': 'Alabama'}
 
     lon = data['Longitude']
     lat = data['Latitude']
