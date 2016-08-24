@@ -73,8 +73,8 @@ PositionLocation looks interesting so we'll grab it.
 
     data  # [{'Longitude': -86.585, 'CityName': 'Huntsville, Alabama', 'Latitude': 34.7291, 'LocationName': 'Huntsville, Alabama', 'CountryCode': 'United States', 'CountrySubDivisionCode': 'Alabama'}]
 
-    lon = data[0]['Longitude']
-    lat = data[0]['Latitude']
+    lon = data['Longitude']
+    lat = data['Latitude']
 
     lon  # -86.585
     lat  # 34.7291
