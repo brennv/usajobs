@@ -17,17 +17,21 @@ Getting started
 
     import usajobs
 
-    results = usajobs.search('park ranger')
+    results = usajobs.search('manager')
 
-    len(results)            # 25
-    result = results[0]     # let's look at the first result
+    len(results)              # 1392
+    result = results[0]       # let's look at the first result
 
-    result.id               # 'usajobs:426475700'
-    result.position_title   # 'Park Ranger'
-    result.start_date       # '2016-01-18'
-    result.end_date         # '2016-08-31'
-    result.url              # 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
-    result.locations        # ['Lake Havasu City, AZ', 'Butte, MT']
+    result.id                 # 'usajobs:445507500'
+    result.organization_name  # 'National Park Service'
+    result.position_title     # 'Project Manager (Interdisciplinary)'
+    result.start_date         # '2016-08-23'
+    result.end_date           # '2016-09-13'
+    result.url                # 'https://www.usajobs.gov/GetJob/ViewDetails/445507500'
+    result.locations          # ['Vancouver, WA']
+    result.minimum            # 71012
+    result.maximum            # 92316
+    result.rate_interval_code # 'PA'
 
 Usage
 -----
@@ -37,9 +41,9 @@ The method `search`_ exposes the v3 api which allows for 'fuzzy' searching.
 search()
 ~~~~~~~~
 
-Return results of fuzzy searches from search terms using the `v3 usajobs.gov api`_.
+Return results from search terms using the `v3 usajobs.gov api`_.
 
-*arguments: terms, as_dict=False*
+*arguments: terms, start=0, step=100, as_dict=False, sleep=0.1, data=[]*
 
 Results, by default, are a list of nametupled data accessible as follows:
 
@@ -47,14 +51,13 @@ Results, by default, are a list of nametupled data accessible as follows:
 
     results = usajobs.search('park ranger')
 
-    results[0].id               # 'usajobs:426475700'
-    results[0].position_title   # 'Park Ranger'
-    results[0].start_date       # '2016-01-18'
-    results[0].end_date         # '2016-08-31'
-    results[0].url              # 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
-    results[0].locations        # ['Lake Havasu City, AZ', 'Butte, MT']
+    len(results)                # 22
 
-To return the results as a list of dicts, use the `as_dict` argument:
+    results[0].url              # 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
+
+    results[0]._asdict().keys() # odict_keys(['id', 'organization_name', 'start_date', 'locations', 'position_title', 'url', 'minimum', 'end_date', 'maximum', 'rate_interval_code'])
+
+To return the results as a list of dicts, use *as_dict* argument:
 
 .. code:: python
 
