@@ -7,7 +7,7 @@
 usajobs
 =======
 
-Lightweight wrapper for exploring the `v3 usajobs.gov api`_. Thanks to `GSA`_.
+Lightweight wrapper for exploring `api.usa.gov/jobs`_ and `data.usajobs.gov/api`_. Thanks to `DigitalGov`_ and `GSA`_.
 
 Installation
 ------------
@@ -42,12 +42,12 @@ Getting started
 Usage
 -----
 
-The method `search`_ exposes the v3 api which allows for 'fuzzy' searching.
+The method `search`_ currently exposes `api.usa.gov/jobs`_ which allows for 'fuzzy' searching. 
 
 search()
 ~~~~~~~~
 
-Return results from search terms using the `v3 usajobs.gov api`_.
+Return results from search terms using the `api.usa.gov/jobs`_.
 
 *arguments: terms, start=0, step=100, as_dict=False, sleep=0.1, data=[]*
 
@@ -97,6 +97,7 @@ PRs welcome, tests run with:
     python -m pytest tests --cov=usajobs/
 
 .. _search: #search
-.. _v2 usajobs.gov api: https://developer.usajobs.gov/Search-API/Instantiating-the-API
-.. _v3 usajobs.gov api: http://search.digitalgov.gov/developer/jobs.html
+.. _data.usajobs.gov/api: https://developer.usajobs.gov/Search-API/Instantiating-the-API
+.. _api.usa.gov/jobs: http://search.digitalgov.gov/developer/jobs.html
 .. _GSA: https://github.com/GSA/jobs_api
+.. _DigitalGov: http://search.digitalgov.gov/index.html
