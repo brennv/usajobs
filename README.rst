@@ -1,7 +1,7 @@
 usajobs
 =======
 
-Lightweight wrapper for exploring the `usajobs.gov`_ api.
+Lightweight wrapper for exploring the `v3 usajobs.gov api`_.
 
 Installation
 ------------
@@ -17,70 +17,65 @@ Getting started
 
     import usajobs
 
+    results = usajobs.search('park ranger')
 
-    auth = usajobs.connect(email='your-email', apikey='your-api-key')
+    len(results)            # 25
+    result = results[0]     # let's look at the first result
 
-    results = usajobs.search('title=ranger', auth=auth)
-
-    results  # {'SearchParameters': {}, 'SearchResult': ..
+    result.id               # 'usajobs:426475700'
+    result.position_title   # 'Park Ranger'
+    result.start_date       # '2016-01-18'
+    result.end_date         # '2016-08-31'
+    result.url              # 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
+    result.locations        # ['Lake Havasu City, AZ', 'Butte, MT']
 
 Usage
 -----
 
-Search usajobs with the following methods: `search`_, ..
-
-To save yourself some typing for auth, in Terminal run:
-
-.. code:: bash
-
-    export email="your-email"
-    export apikey="your-apikey"
+The method `search`_ exposes the v3 api which allows for 'fuzzy' searching.
 
 search()
 ~~~~~~~~
 
-At the moment search simply returns a dict with the entire response.
+Return results of fuzzy searches from search terms using the `v3 usajobs.gov api`_.
+
+*arguments: terms, as_dict=False*
+
+Results, by default, are a list of nametupled data accessible as follows:
 
 .. code:: python
 
-    results = usajobs.search('title=ranger')
+    results = usajobs.search('park ranger')
 
-We'll Eeplore the data mostly using dict method `keys()`
+    results[0].id               # 'usajobs:426475700'
+    results[0].position_title   # 'Park Ranger'
+    results[0].start_date       # '2016-01-18'
+    results[0].end_date         # '2016-08-31'
+    results[0].url              # 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
+    results[0].locations        # ['Lake Havasu City, AZ', 'Butte, MT']
 
-.. code:: python
-
-    results.keys()  # dict_keys(['SearchParameters', 'SearchResult', 'LanguageCode'])
-
-    results['SearchResult'].keys()  # dict_keys(['SearchResultItems', 'UserArea', 'SearchResultCount', 'SearchResultCountAll'])
-
-    results['SearchResult']['SearchResultItems'].keys()  # AttributeError: 'list' object has no attribute 'keys'
-
-Got an error cause we hit a list, so we'll grab the first item in the list.
+To return the results as a list of dicts, use the `as_dict` argument:
 
 .. code:: python
 
-    results['SearchResult']['SearchResultItems'][0]  # {'RelevanceRank': 10408.0, 'MatchedObjectDescriptor': ..
+    results = usajobs.search('park ranger', as_dict=True)
 
-    results['SearchResult']['SearchResultItems'][0].keys()  # dict_keys(['RelevanceRank', 'MatchedObjectDescriptor', 'MatchedObjectId'])
+    print(results[0])
 
-    results['SearchResult']['SearchResultItems'][0]['MatchedObjectDescriptor'].keys()  # dict_keys(['PositionLocation', 'PositionID', 'PositionTitle', 'PositionRemuneration', 'JobCategory', 'PositionFormattedDescription', 'UserArea', 'PositionURI', 'PositionStartDate', 'OrganizationName', 'JobGrade', 'DepartmentName', 'QualificationSummary', 'PositionOfferingType', 'PublicationStartDate', 'ApplicationCloseDate', 'PositionEndDate', 'ApplyURI', 'PositionSchedule'])
+.. code:: javascript
 
-PositionLocation looks interesting so we'll grab it.
-
-.. code:: python
-
-    data = results['SearchResult']['SearchResultItems'][0]['MatchedObjectDescriptor']['PositionLocation'][0]
-
-    data  # {'Longitude': -86.585, 'CityName': 'Huntsville, Alabama', 'Latitude': 34.7291, 'LocationName': 'Huntsville, Alabama', 'CountryCode': 'United States', 'CountrySubDivisionCode': 'Alabama'}
-
-    lon = data['Longitude']
-    lat = data['Latitude']
-
-    lon  # -86.585
-    lat  # 34.7291
-
-Next up, we'll add function to parse the locations for all the job results..
-
+    {
+      'id': 'usajobs:426475700',
+      'position_title': 'Park Ranger',
+      'organization_name': 'Bureau of Land Management',
+      'rate_interval_code': 'PH',
+      'minimum': 15,
+      'maximum': 20,
+      'start_date': '2016-01-18',
+      'end_date': '2016-08-31',
+      'locations': ['Lake Havasu City, AZ', 'Butte, MT'],
+      'url': 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
+    }
 
 Development
 -----------
@@ -92,5 +87,6 @@ PRs welcome, tests run with:
     pip install pytest pytest-cov
     python -m pytest tests --cov=usajobs/
 
-.. _jobs: #jobs
-.. _usajobs.gov: https://developer.usajobs.gov/Search-API/Instantiating-the-API
+.. _search: #search
+.. _v2 usajobs.gov api: https://developer.usajobs.gov/Search-API/Instantiating-the-API
+.. _v3 usajobs.gov api: http://search.digitalgov.gov/developer/jobs.html
