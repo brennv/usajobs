@@ -7,7 +7,7 @@
 usajobs
 =======
 
-Lightweight wrapper for exploring the `v3 usajobs.gov api`_. Thanks to `GSA/jobs_api`_.
+Lightweight wrapper for exploring the `v3 usajobs.gov api`_. Thanks to `GSA`_.
 
 Installation
 ------------
