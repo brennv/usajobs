@@ -18,7 +18,7 @@ def search(terms, start=0, step=100, as_dict=False, sleep=0.1, data=[]):
     if not as_dict:
         results = namedtupled.map(results)
     data += results
-    print(len(data), end='\r')
+    # print(len(data), end='\r')
     if len(results) == step:
         _next = start + step
         time.sleep(sleep)
