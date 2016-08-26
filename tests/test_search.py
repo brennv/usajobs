@@ -1,12 +1,10 @@
 import usajobs
 import pytest
+import requests
 
 
-def test_query_connect():
-    results = usajobs.query('JobCategoryCode=2210')
-    assert results != None
-
-
-def test_search_connect():
-    results = usajobs.search('park ranger')
-    assert results != None
+def test_search():
+    test_url = 'https://api.usa.gov/jobs/search.json?query=park+ranger&size=100'
+    test_data = requests.get(test_url).json()
+    results = usajobs.search('park ranger', as_dict=True)
+    assert results == test_data

@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
     name='usajobs',
     packages=['usajobs'],
-    version='0.1.2',
+    version='0.1.3',
     description='Lightweight wrapper for the usajobs.gov api.',
     long_description='https://github.com/brennv/usajobs',
     classifiers=[
@@ -23,7 +23,7 @@ setup(
     author_email='brennan@beta.build',
     license='MIT',
     url='https://github.com/brennv/usajobs',
-    download_url='https://github.com/brennv/usajobs/tarball/0.1.2',
+    download_url='https://github.com/brennv/usajobs/tarball/0.1.3',
     keywords='usajobs usajobs.gov api',
     install_requires=[
         'requests',
