@@ -1,0 +1,43 @@
+# Query Parameters https://developer.usajobs.gov/Search-API/API-Query-Parameters
+Keyword:
+KeywordExclusion:
+KeywordFilter:  # Options: All, Any, Exact
+PositionTitle:
+RemunerationMinimumAmount:
+RemunerationMaximumAmount:
+PayGradeLow:
+PayGradeHigh:
+TravelPercentage:
+SupervisoryStatus:
+ExcludeJOAOpenFor30Days:
+DatePosted:
+SortField:
+SortDirection:
+Page:
+ResultsPerPage:
+WhoMayApply:
+Radius:
+Fields:
+GradeBucket:
+SES:
+Student:
+Internship:
+RecentGrad:
+RelocationIndicator:
+# Semicolon delimited parameters represented as list items:
+JobCategoryCode:
+  -
+LocationName:
+  -
+Organization:
+  -
+PositionOfferingTypeCode:
+  -
+PositionScheduleTypeCode:
+  -
+SecurityClearanceRequired:
+  -
+JobGradeCode:
+  -
+SalaryBucket:
+  -
