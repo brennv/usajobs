@@ -99,4 +99,4 @@ PRs welcome, tests run with:
 .. _search: #search
 .. _v2 usajobs.gov api: https://developer.usajobs.gov/Search-API/Instantiating-the-API
 .. _v3 usajobs.gov api: http://search.digitalgov.gov/developer/jobs.html
-.. _GSA/jobs_api: https://github.com/GSA/jobs_api
+.. _GSA: https://github.com/GSA/jobs_api
