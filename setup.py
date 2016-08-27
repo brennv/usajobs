@@ -47,7 +47,7 @@ setup(
     name='usajobs',
     packages=['usajobs'],
     version='0.1.6',
-    description='Lightweight wrapper for searching usajobs.gov.',
+    description='Lightweight wrapper for exploring the usajobs.gov api.',
     long_description=brief_description,
     classifiers=[
         'Development Status :: 1 - Planning',
