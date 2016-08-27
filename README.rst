@@ -26,8 +26,8 @@ Getting started
     results = usajobs.search('manager')
 
     len(results)              # 1392
-    result = results[0]       # let's look at the first result
 
+    result = results[0]       # first result
     result.id                 # 'usajobs:445507500'
     result.organization_name  # 'National Park Service'
     result.position_title     # 'Project Manager (Interdisciplinary)'
@@ -42,14 +42,14 @@ Getting started
 Usage
 -----
 
-The method `search`_ currently exposes `api.usa.gov/jobs`_ which allows for 'fuzzy' searching. 
+The method `search`_ currently exposes `api.usa.gov/jobs`_ which allows for 'fuzzy' searching.
 
 search()
 ~~~~~~~~
 
 Return results from search terms using the `api.usa.gov/jobs`_.
 
-*arguments: terms, start=0, step=100, as_dict=False, sleep=0.1, data=[]*
+*arguments: terms, start=0, step=100, as_dict=False*
 
 Results, by default, are a list of nametupled data accessible as follows:
 
@@ -59,9 +59,14 @@ Results, by default, are a list of nametupled data accessible as follows:
 
     len(results)                # 22
 
-    results[0].url              # 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
+    # To get a list of available keys:
 
     results[0]._asdict().keys() # odict_keys(['id', 'organization_name', 'start_date', 'locations', 'position_title', 'url', 'minimum', 'end_date', 'maximum', 'rate_interval_code'])
+
+    # Use a key to get a value:
+
+    results[0].url              # 'https://www.usajobs.gov/GetJob/ViewDetails/426475700'
+
 
 To return the results as a list of dicts, use *as_dict* argument:
 

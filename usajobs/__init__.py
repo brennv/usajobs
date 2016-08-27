@@ -1,29 +1,32 @@
 import requests
 import namedtupled
-import time
 # api v3: http://search.digitalgov.gov/developer/jobs.html
 
 
-def search(terms, start=0, step=100, as_dict=False, sleep=0.1, data=[]):
-    """ Constructs v3 fuzzy searches with parameters outlined here:
-    http://search.digitalgov.gov/developer/jobs.html """
+def format_search(terms):
     base_url = 'https://api.usa.gov/jobs/search.json?'
     words = [x for x in terms.split(' ') if x]
     query = 'query=' + '+'.join(words)
+    url = base_url + query
+    return url
+
+
+def search(terms, start=0, step=100, as_dict=False):
+    """ Constructs v3 fuzzy searches with parameters outlined here:
+    http://search.digitalgov.gov/developer/jobs.html """
     size = '&size=' + str(step)
-    _from = '&from=' + str(start)
-    url = base_url + query + size + _from
-    response = requests.get(url)
-    results = response.json()
+    base_url = format_search(terms) + size
+    results = requests.get(base_url).json()
+    data = results
+    if len(data) == step:
+        while results != []:
+            start += step
+            from_start = '&from=' + str(start)
+            next_url = base_url + from_start
+            results = requests.get(next_url).json()
+            data += results
     if not as_dict:
-        results = namedtupled.map(results)
-    data += results
-    # print(len(data), end='\r')
-    if len(results) == step:
-        _next = start + step
-        time.sleep(sleep)
-        search(terms=terms, start=_next, step=step, as_dict=as_dict,
-               sleep=sleep, data=data)
+        data = namedtupled.map(data)
     return data
 
 
