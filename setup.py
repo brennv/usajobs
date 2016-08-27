@@ -46,8 +46,8 @@ Getting started
 setup(
     name='usajobs',
     packages=['usajobs'],
-    version='0.1.5',
-    description='Wrapper for searching usajobs.gov.',
+    version='0.1.6',
+    description='Lightweight wrapper for searching usajobs.gov.',
     long_description=brief_description,
     classifiers=[
         'Development Status :: 1 - Planning',
@@ -66,7 +66,7 @@ setup(
     author_email='brennan@beta.build',
     license='MIT',
     url='https://github.com/brennv/usajobs',
-    download_url='https://github.com/brennv/usajobs/tarball/0.1.5',
+    download_url='https://github.com/brennv/usajobs/tarball/0.1.6',
     keywords='usajobs usa.jobs usajobs.gov api',
     install_requires=[
         'requests',
