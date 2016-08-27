@@ -40,7 +40,10 @@ Getting started
     result.maximum            # 92316
     result.rate_interval_code # 'PA'
 
+Docs: `https://github.com/brennv/usajobs#readme`_
+
 .. _https://github.com/brennv/usajobs: https://github.com/brennv/usajobs
+.. _https://github.com/brennv/usajobs#readme: https://github.com/brennv/usajobs#readme
 """
 
 setup(
