@@ -7,7 +7,7 @@
 usajobs
 =======
 
-Lightweight wrapper for exploring `api.usa.gov/jobs`_ and `data.usajobs.gov/api`_. Thanks to `DigitalGov`_ and `GSA`_.
+Lightweight wrapper for exploring `api.usa.gov/jobs`_ and `data.usajobs.gov/api`_.
 
 Installation
 ------------
