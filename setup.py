@@ -70,7 +70,7 @@ setup(
     keywords='usajobs usa.jobs usajobs.gov api',
     install_requires=[
         'requests',
-        'nametupled',
+        'namedtupled',
     ],
     include_package_data=True,
     zip_safe=False)
